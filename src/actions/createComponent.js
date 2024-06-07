@@ -75,23 +75,18 @@ export async function createComponent() {
 
   const ext = language === "TypeScript" ? "ts" : "js";
   const templateDir = path.resolve(
-    `templates/component/${framework.toLowerCase()}`
+    __dirname,
+    `../templates/component/${framework.toLowerCase()}`
   );
   const destDir = path.resolve(process.cwd(), componentName);
   const cssDir = path.resolve(destDir, "css");
-  const viewTemplatePath = path.resolve(
-    __dirname,
-    "../templates/component/lit/component.view.ts"
-  );
+  const viewTemplatePath = path.resolve(templateDir, "component.view.ts");
   const viewModelTemplatePath = path.resolve(
-    __dirname,
-    "../templates/component/lit/component.viewmodel.ts"
+    templateDir,
+    "component.viewmodel.ts"
   );
 
-  const cssTemplatePath = path.resolve(
-    __dirname,
-    "../templates/component/lit/component.theme.css"
-  );
+  const cssTemplatePath = path.resolve(templateDir, "component.theme.css.ts");
 
   const viewDestPath = path.resolve(
     destDir,
