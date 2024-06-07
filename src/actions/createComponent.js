@@ -73,17 +73,22 @@ export async function createComponent() {
   const templateDir = path.resolve(
     `templates/component/${framework.toLowerCase()}`
   );
-  const destDir = path.resolve(normalizeComponentName);
+  const destDir = path.resolve(process.cwd(), componentName);
   const cssDir = path.resolve(destDir, "css");
-  const viewTemplatePath = path.resolve(templateDir, `component.view.${ext}`);
+  const viewTemplatePath = path.resolve(
+    __dirname,
+    "../templates/component/lit/component.view.ts"
+  );
   const viewModelTemplatePath = path.resolve(
-    templateDir,
-    `component.viewmodel.${ext}`
+    __dirname,
+    "../templates/component/lit/component.viewmodel.ts"
   );
+
   const cssTemplatePath = path.resolve(
-    templateDir,
-    `component.theme.css.${ext}`
+    __dirname,
+    "../templates/component/lit/component.theme.css"
   );
+
   const viewDestPath = path.resolve(
     destDir,
     `${normalizeComponentName}.view.${ext}`
