@@ -2,7 +2,6 @@ import chalk from "chalk";
 import figlet from "figlet";
 import inquirer from "inquirer";
 
-import { createMock } from "./actions/createMock.js";
 import { createComponent } from "./actions/createComponent.js";
 
 export async function main() {
@@ -21,10 +20,7 @@ export async function main() {
       type: "list",
       name: "action",
       message: "Choose an action:",
-      choices: [
-        { name: "Create Component", value: "createComponent" },
-        // { name: "Create Mock", value: "createMock" },
-      ],
+      choices: [{ name: "Create Component", value: "createComponent" }],
     },
   ]);
 
@@ -32,9 +28,6 @@ export async function main() {
     case "createComponent":
       await createComponent();
       break;
-    // case "createMock":
-    //   await createMock();
-    //   break;
     default:
       console.log(chalk.red("Unknown action!"));
   }
