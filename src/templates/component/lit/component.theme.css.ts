@@ -1,3 +1,5 @@
+import { CSSResult, CSSResultOrNative, css } from 'lit';
+
 export class {COMPONENT_NAME}Theme {
   static cssBase: CSSResult = css`
     :host {

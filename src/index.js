@@ -5,15 +5,7 @@ import inquirer from "inquirer";
 import { createComponent } from "./actions/createComponent.js";
 
 export async function main() {
-  console.log(
-    chalk.green(
-      figlet.textSync("Ricky - CLI", {
-        horizontalLayout: "fitted",
-        font: "Alpha",
-        width: "150",
-      })
-    )
-  );
+  console.log(chalk.green(figlet.textSync("Ricky - CLI")));
 
   const { action } = await inquirer.prompt([
     {
