@@ -3,7 +3,6 @@ import figlet from "figlet";
 import inquirer from "inquirer";
 
 import { createComponent } from "./actions/createComponent.js";
-import { createMonorepoComponent } from "./actions/createMonorepoComponent.js";
 import { createMicroFrontend } from "./actions/createMicroFrontend.js";
 
 export async function main() {
@@ -16,7 +15,6 @@ export async function main() {
       message: "Choose an action:",
       choices: [
         { name: "Create Base Component", value: "createComponent" },
-        { name: "Create Monorepo Component", value: "createMonorepoComponent" },
         { name: "Create Micro Frontend", value: "createMicroFrontend" },
       ],
     },
@@ -25,10 +23,6 @@ export async function main() {
   switch (action) {
     case "createComponent":
       await createComponent();
-      break;
-
-    case "createMonorepoComponent":
-      await createMonorepoComponent();
       break;
 
     case "createMicroFrontend":
