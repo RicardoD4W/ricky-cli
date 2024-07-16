@@ -1,5 +1,6 @@
 import inquirer from "inquirer";
 import { createLitComponent } from "./lit/createLitComponent.js";
+import { createReactComponent } from "./react/createReactComponent.js";
 
 export async function createComponent() {
   let componentName = "";
@@ -27,7 +28,7 @@ export async function createComponent() {
       type: "list",
       name: "framework",
       message: "Choose a framework:",
-      choices: ["Lit"],
+      choices: ["Lit", "React"],
     },
   ]);
 
@@ -45,6 +46,10 @@ export async function createComponent() {
   switch (framework) {
     case "Lit":
       createLitComponent(componentName, ext);
+      break;
+
+    case "React":
+      createReactComponent(componentName, ext);
       break;
   }
 }
