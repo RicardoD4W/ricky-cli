@@ -1,7 +1,7 @@
 import inquirer from "inquirer";
-import { createLitComponent } from "./lit/createLitComponent.js";
+import { createMicrofrontendLitComponent } from "./lit/createMicrofrontendLitComponent.js";
 
-export async function createComponent() {
+export async function createMicroFrontend() {
   let componentName = "";
 
   // Validación del nombre del componente
@@ -44,7 +44,7 @@ export async function createComponent() {
 
   switch (framework) {
     case "Lit":
-      createLitComponent(componentName, ext);
+      createMicrofrontendLitComponent(componentName, ext);
       break;
   }
 }

@@ -2,8 +2,8 @@ import path from "path";
 import fs from "fs";
 import chalk from "chalk";
 import inquirer from "inquirer";
-import { __DIRNAME } from "../utils/path.js";
-import { toNormalize, toPascalCase } from "../utils/util.js";
+import { __DIRNAME } from "../../utils/path.js";
+import { toNormalize, toPascalCase } from "../../utils/util.js";
 
 export async function createLitComponent(componentName, ext) {
   const framework = "Lit";

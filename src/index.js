@@ -3,6 +3,8 @@ import figlet from "figlet";
 import inquirer from "inquirer";
 
 import { createComponent } from "./actions/createComponent.js";
+import { createMonorepoComponent } from "./actions/createMonorepoComponent.js";
+import { createMicroFrontend } from "./actions/createMicroFrontend.js";
 
 export async function main() {
   console.log(chalk.green(figlet.textSync("Ricky - CLI")));
@@ -12,7 +14,11 @@ export async function main() {
       type: "list",
       name: "action",
       message: "Choose an action:",
-      choices: [{ name: "Create Component", value: "createComponent" }],
+      choices: [
+        { name: "Create Base Component", value: "createComponent" },
+        { name: "Create Monorepo Component", value: "createMonorepoComponent" },
+        { name: "Create Micro Frontend", value: "createMicroFrontend" },
+      ],
     },
   ]);
 
@@ -20,6 +26,15 @@ export async function main() {
     case "createComponent":
       await createComponent();
       break;
+
+    case "createMonorepoComponent":
+      await createMonorepoComponent();
+      break;
+
+    case "createMicroFrontend":
+      await createMicroFrontend();
+      break;
+
     default:
       console.log(chalk.red("Unknown action!"));
   }
