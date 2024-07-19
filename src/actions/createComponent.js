@@ -7,8 +7,8 @@ import {
 } from "./common-actions/prompts.js";
 
 export async function createComponent() {
-  let componentName = await selectName();
   let framework = await selectFramework();
+  let componentName = await selectName();
   let ext = await selectLanguaje();
   let additionalOptions = await selectOptions({ framework });
 
