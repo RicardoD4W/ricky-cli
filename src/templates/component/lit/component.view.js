@@ -8,7 +8,7 @@ export class {COMPONENT_NAME}View extends {COMPONENT_NAME}ViewModel {
     return [...super.finalizeStyles(styles), {COMPONENT_NAME}Theme.cssBase];
   }
 
-  public render() {
+  render() {
     return html``;
   }
 }
