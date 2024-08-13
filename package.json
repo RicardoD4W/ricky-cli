@@ -1,6 +1,6 @@
 {
   "name": "ricky-cli",
-  "version": "1.1.3",
+  "version": "1.1.5",
   "description": "ricky-cli is a powerful and user-friendly command-line interface designed to streamline and automate the process of creating components and others utilities  for your projects. Built with Node.js and leveraging popular libraries such as chalk, figlet, and inquirer, **ricky-cli** provides a seamless and interactive experience for developers.",
   "main": "src/index.js",
   "bin": {

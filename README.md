@@ -5,6 +5,7 @@
 ## Features:
 
 - Component Creation: Quickly generate boilerplate code for new components with just a few prompts.
+- Microfrontend Creation: Seamlessly create microfrontends as part of your project, allowing for modular and independent development of features. This facilitates the integration of diverse technology stacks and ensures scalability.
 - Language Selection: Choose between different programming languages.
 - Additional Options: Customize your component with additional features like models, events, shared utilities, templates, and services.
 - Interactive Prompts: Easy-to-follow prompts guide you through the component creation process, ensuring you provide all necessary details.
@@ -13,6 +14,7 @@
 ## Currently Supported Frameworks
 
 - Lit (TS/JS)
+- React (TS/JS)
 
 ## Installation
 
