@@ -1,4 +1,4 @@
-import { toNormalize, toPascalCase } from "../../utils/util.js";
+import { toLowerCase, toNormalize, toPascalCase } from "../../utils/util.js";
 import { __DIRNAME } from "../../utils/path.js";
 import path from "path";
 import fs from "fs";
@@ -34,9 +34,12 @@ export async function createComponentFiles({
 }) {
   const normalizeComponentName = toNormalize(componentName);
   const pascalCaseComponentName = toPascalCase(normalizeComponentName);
+  const lowerCaseComponentName = toLowerCase(normalizeComponentName);
+
   const replacements = {
     COMPONENT_NAME: pascalCaseComponentName,
     camelCaseName: normalizeComponentName,
+    lowerCaseComponentName: lowerCaseComponentName,
   };
 
   const templateDir = path.resolve(
