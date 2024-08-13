@@ -1,10 +1,14 @@
-import {COMPONENT_NAME}Theme from './css/{camelCaseName}.module.css'
-import { {COMPONENT_NAME}Model } from './{camelCaseName}.model'
+import {COMPONENT_NAME}Theme from './css/{camelCaseName}.module.css';
+import { type {COMPONENT_NAME}Model } from './{camelCaseName}.model';
+import { use{COMPONENT_NAME}ViewModel } from "./{camelCaseName}.viewmodel";
 
-interface {COMPONENT_NAME}Props {
-  model: {COMPONENT_NAME}Model
-}
 
-export default function {COMPONENT_NAME}View ({model} : {COMPONENT_NAME}Props){
-  return <></>
+export default function {COMPONENT_NAME}View (props : {COMPONENT_NAME}Model){
+  const { {camelCaseName}Title } = use{COMPONENT_NAME}ViewModel(props);
+
+  return (
+    <>
+      <h1>{ {camelCaseName}Title }</h1>
+    </>
+  );
 }
