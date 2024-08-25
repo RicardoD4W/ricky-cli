@@ -7,7 +7,6 @@ import { versionMsg } from "../src/views/version.js";
 
 updateNotifier({
   pkg: packageJson,
-  shouldNotifyInNpmScript,
   updateCheckInterval: 1000 * 60 * 60 * 24,
 }).notify({
   isGlobal: true,
