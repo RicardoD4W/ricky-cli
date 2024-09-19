@@ -1,4 +1,5 @@
 import inquirer from "inquirer";
+import { LANGUAGE_MAPPER } from "../../utils/mapper.js";
 
 export async function selectOptions({ framework }) {
   let dirChoices = [];
@@ -74,5 +75,41 @@ export async function selectLanguaje() {
     },
   ]);
 
-  return language === "TypeScript" ? "ts" : "js";
+  return LANGUAGE_MAPPER[language];
+}
+
+export async function selectScript() {
+  const { script } = await inquirer.prompt([
+    {
+      type: "list",
+      name: "script",
+      message: "Choose a script:",
+      choices: ["getAllGitBranches.sh"],
+    },
+  ]);
+
+  const allowedScripts = ["getAllGitBranches.sh"];
+  if (!allowedScripts.includes(script)) {
+    throw new Error("Invalid script selection");
+  }
+
+  return script;
+}
+
+export async function selectRemoteBranch() {
+  const { remoteBranch } = await inquirer.prompt([
+    {
+      type: "input",
+      name: "remoteBranch",
+      message: "Enter the remote branch:",
+      default: "origin",
+    },
+  ]);
+
+  const branchRegex = /^[a-zA-Z0-9_\-\/]+$/;
+  if (!branchRegex.test(remoteBranch)) {
+    throw new Error("Invalid branch name");
+  }
+
+  return remoteBranch;
 }

@@ -3,6 +3,7 @@ import inquirer from "inquirer";
 
 import { createComponent } from "./actions/createComponent.js";
 import { createMicroFrontend } from "./actions/createMicroFrontend.js";
+import { executeScripts } from "./actions/executeScripts.js";
 
 export async function main() {
   const { action } = await inquirer.prompt([
@@ -13,6 +14,10 @@ export async function main() {
       choices: [
         { name: "Create Base Component", value: "createComponent" },
         { name: "Create Micro Frontend", value: "createMicroFrontend" },
+        {
+          name: "Execute scripts",
+          value: "executeScripts",
+        },
       ],
     },
   ]);
@@ -24,6 +29,10 @@ export async function main() {
 
     case "createMicroFrontend":
       await createMicroFrontend();
+      break;
+
+    case "executeScripts":
+      await executeScripts();
       break;
 
     default:
