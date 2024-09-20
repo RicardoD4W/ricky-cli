@@ -1,5 +1,11 @@
 import inquirer from "inquirer";
 import { LANGUAGE_MAPPER } from "../../utils/mapper.js";
+import {
+  validateAllowFrameworks,
+  validateAllowLanguages,
+  validateAllowScripts,
+  validateBashParamInput,
+} from "./validate.js";
 
 export async function selectOptions({ framework }) {
   let dirChoices = [];
@@ -59,7 +65,7 @@ export async function selectFramework() {
       type: "list",
       name: "framework",
       message: "Choose a framework:",
-      choices: ["Lit", "React"],
+      choices: validateAllowFrameworks(),
     },
   ]);
   return framework;
@@ -71,7 +77,7 @@ export async function selectLanguaje() {
       type: "list",
       name: "language",
       message: "Choose a language:",
-      choices: ["TypeScript", "JavaScript"],
+      choices: validateAllowLanguages(),
     },
   ]);
 
@@ -84,19 +90,18 @@ export async function selectScript() {
       type: "list",
       name: "script",
       message: "Choose a script:",
-      choices: ["getAllGitBranches.sh"],
+      choices: validateAllowScripts(),
     },
   ]);
-
-  const allowedScripts = ["getAllGitBranches.sh"];
-  if (!allowedScripts.includes(script)) {
-    throw new Error("Invalid script selection");
-  }
 
   return script;
 }
 
-export async function selectRemoteBranch() {
+export async function selectParameters(scriptSelected) {
+  if (scriptSelected.includes("Git")) return await selectGitParameters();
+}
+
+async function selectGitParameters() {
   const { remoteBranch } = await inquirer.prompt([
     {
       type: "input",
@@ -106,10 +111,7 @@ export async function selectRemoteBranch() {
     },
   ]);
 
-  const branchRegex = /^[a-zA-Z0-9_\-\/]+$/;
-  if (!branchRegex.test(remoteBranch)) {
-    throw new Error("Invalid branch name");
-  }
+  validateBashParamInput(remoteBranch);
 
   return remoteBranch;
 }

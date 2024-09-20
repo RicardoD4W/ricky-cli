@@ -4,6 +4,7 @@ REMOTE_NAME="${1:-origin}"
 
 COLOR_ERROR='\033[0;31m'
 COLOR_SUCCESS='\033[0;32m'
+COLOR_WARM='\033[1;33m'
 COLOR_RESET='\033[0m'
 
 count_created=0
@@ -31,6 +32,7 @@ for branch in $(git branch -r | grep "$REMOTE_NAME" | grep -v '\->'); do
 done
 
 echo -e "\n\nSummary:"
+echo -e "Total branches: ${COLOR_WARM}$((count_created + count_existing))${COLOR_RESET}"
 echo -e "Total existing branches: ${COLOR_ERROR}$count_existing${COLOR_RESET}"
 echo -e "Total branch created: ${COLOR_SUCCESS}$count_created${COLOR_RESET}"
 
