@@ -31,5 +31,8 @@
     "figlet": "^1.7.0",
     "inquirer": "^9.2.23",
     "update-notifier": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=22.14.0"
   }
 }
